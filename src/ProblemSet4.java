@@ -21,7 +21,17 @@
 public class ProblemSet4 {
 	
 	public static void main(String[] args) {
-		
+		ProblemSet4 ps = new ProblemSet4();
+		System.out.println(ps.surroundMe("<<>>", "abc"));
+		ps.endsMeet("hello",5);
+		ps.middleMan("hello");
+		ps.doubleVision("hello");
+		ps.centered("hello");
+		ps.upOrDown(1.0, 'X');
+		ps.countMe("hello",'x');
+		ps.isNotEqual("hello");
+		ps.triplets("hello");
+		ps.addMe("hello", true);
 	}
 	
 	/**
@@ -38,7 +48,15 @@ public class ProblemSet4 {
 	 * @return a String constructed from @in and @out of the format AAXYZBB
 	 */
 	
-	// your method signature here
+	public String surroundMe(String in, String out) {
+	if (in.length() != 3 || out.length() != 4) {
+		return null;
+	}
+	else {
+		out = out.substring(0,2) + in + out.substring(3,2);
+		return out;
+	}
+	}
 	
 	/**
 	 * @endsMeet is a public method that accepts a String and an integer as input, and
@@ -54,7 +72,9 @@ public class ProblemSet4 {
 	 * @return a String constructed from the first @n and last @n characters of @str
 	 */
 	
-	// your method signature here
+	public String endsMeet(String str, int n) {
+		return str;
+	}
 	
 	/**
 	 * @middleMan is a public method that accepts a single String as input, and
@@ -69,7 +89,9 @@ public class ProblemSet4 {
 	 * @return a 3-character String constructed from the middle 3 characters of @str
 	 */
 	
-	// your method signature here
+	public String middleMan(String str) {
+		return str;
+	}
 	
 	/**
 	 * @doubleVision is a public method that accepts a single String as input, and
@@ -84,7 +106,9 @@ public class ProblemSet4 {
 	 * @return a String where each character in @str is duplicated in the format AABBCC
 	 */
 	
-	// your method signature here
+	public String doubleVision(String str) {
+		return str;
+	}
 	
 	/**
 	 * @centered is a public method that accepts a single String as input, and
@@ -101,7 +125,9 @@ public class ProblemSet4 {
 	 * @return true if @target is in the middle of @str and false if it is not
 	 */
 	
-	// your method signature here
+	public boolean centered (String str) {
+		return true;
+	}
 	
 	/**
 	 * @upOrDown is a public method that accepts a decimal value and a character as
@@ -117,7 +143,9 @@ public class ProblemSet4 {
 	 * @return the result of the operation as an @int
 	 */
 	
-	// your method signature here
+	public int upOrDown (double number, char operation) {
+		return -1;
+	}
 	
 	/**
 	 * @countMe is a public method that accepts a String and a character as input,
@@ -135,7 +163,9 @@ public class ProblemSet4 {
 	 * @return the number of words in @text that end with @end
 	 */
 	
-	// your method signature here
+	public int countMe (String text, char end) {
+		return -1;
+	}
 	
 	/**
 	 * @isNotEqual is a public method that accepts a String as input, and
@@ -150,7 +180,9 @@ public class ProblemSet4 {
 	 * @return true if the appearances of is == the appearances of not; false otherwise
 	 */
 	
-	// your method signature here
+	public boolean isNotEqual(String str) {
+		return false;
+	}
 	
 	/**
 	 * @triplets is a public method that accepts a single String as input, and
@@ -166,7 +198,9 @@ public class ProblemSet4 {
 	 * @return the number of triplets in @str
 	 */
 	
-	// your method signature here
+	public int triplets(String str) {
+		return -1;
+	}
 	
 	/**
 	 * @addMe is a public method that accepts a String and a boolean as input, and
@@ -183,5 +217,7 @@ public class ProblemSet4 {
 	 * @return the sum of the digits or numbers as specified by @digits
 	 */
 	
-	// your method signature here
+	public int addMe(String str, boolean digits) {
+		return -1;
+	}
 }
