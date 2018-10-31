@@ -48,12 +48,12 @@ public class ProblemSet4 {
 	 * @return a String constructed from @in and @out of the format AAXYZBB
 	 */
 	
-	public String surroundMe(String in, String out) {
-	if (in.length() != 3 || out.length() != 4) {
+	public String surroundMe(String out, String in) {
+	if (out.length() != 4 || in.length() != 3) {
 		return null;
 	}
 	else {
-		out = out.substring(0,2) + in + out.substring(3,2);
+		out = out.substring(0,2) + in + out.substring(2,4);
 		return out;
 	}
 	}
