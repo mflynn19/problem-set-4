@@ -23,10 +23,10 @@ public class ProblemSet4 {
 	public static void main(String[] args) {
 		ProblemSet4 ps = new ProblemSet4();
 		System.out.println(ps.surroundMe("<<>>", "abc"));
-		ps.endsMeet("hello",5);
-		ps.middleMan("hello");
+		System.out.println(ps.endsMeet("hello",2));
+		System.out.println(ps.middleMan("hello"));
 		ps.doubleVision("hello");
-		ps.centered("hello");
+		ps.centered("hello", "hello");
 		ps.upOrDown(1.0, 'X');
 		ps.countMe("hello",'x');
 		ps.isNotEqual("hello");
@@ -49,7 +49,7 @@ public class ProblemSet4 {
 	 */
 	
 	public String surroundMe(String out, String in) {
-	if (out.length() != 4 || in.length() != 3) {
+	if (out.length() != 4 || in.length() != 3 || out == null || in == null) {
 		return null;
 	}
 	else {
@@ -73,7 +73,16 @@ public class ProblemSet4 {
 	 */
 	
 	public String endsMeet(String str, int n) {
-		return str;
+		if (str == null) {
+			return null;
+		}
+		else if (str.length() > 10 || str.length() < 1){
+			return null;
+		}
+		else{
+			str = str.substring(0, n) + str.substring(str.length()- n, str.length());
+			return str;
+		}
 	}
 	
 	/**
@@ -90,7 +99,16 @@ public class ProblemSet4 {
 	 */
 	
 	public String middleMan(String str) {
-		return str;
+		if (str == null){
+			return null;
+			}
+		else if (str.length() % 2 != 0){
+			str = str.substring(str.length()/2 -1, str.length()/2 +2);
+			return str;
+		}
+		else {
+			return null;
+		}
 	}
 	
 	/**
@@ -107,7 +125,18 @@ public class ProblemSet4 {
 	 */
 	
 	public String doubleVision(String str) {
-		return str;
+		String out = "";
+		if (str.length() < 1 || str == null) {
+			return null;
+		}
+				
+		else {
+			for (int i = 0; i < str.length(); i++) {
+				out += str.charAt(i);
+				out += str.charAt(i);
+			}
+		}
+		return out;
 	}
 	
 	/**
@@ -125,8 +154,24 @@ public class ProblemSet4 {
 	 * @return true if @target is in the middle of @str and false if it is not
 	 */
 	
-	public boolean centered (String str) {
-		return true;
+	public boolean centered (String str, String target) {
+		if (str == null) {
+			return false;
+		}
+		if (str.length() % 2 != 0) {
+			String middle = str.substring(str.length()/2 -1, str.length()/2 +2);
+			if (middle.equals(target)) {
+				return true;
+			}
+		}
+		String midOne = str.substring(str.length()/2 -2, str.length()/2 +1);
+		String midTwo = str.substring(str.length()/2 -1, str.length()/2 +1);
+		if (midOne.equals(target) || midTwo.equals(target)){
+				return true;
+			}
+		else {
+			return false;
+			}
 	}
 	
 	/**
@@ -144,6 +189,7 @@ public class ProblemSet4 {
 	 */
 	
 	public int upOrDown (double number, char operation) {
+		
 		return -1;
 	}
 	
