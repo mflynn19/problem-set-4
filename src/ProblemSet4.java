@@ -25,13 +25,13 @@ public class ProblemSet4 {
 		System.out.println(ps.surroundMe("<<>>", "abc"));
 		System.out.println(ps.endsMeet("hello",2));
 		System.out.println(ps.middleMan("hello"));
-		ps.doubleVision("hello");
-		ps.centered("hello", "hello");
-		ps.upOrDown(1.0, 'X');
-		ps.countMe("hello",'x');
-		ps.isNotEqual("hello");
-		ps.triplets("hello");
-		ps.addMe("hello", true);
+		System.out.println(ps.doubleVision("hello"));
+		System.out.println(ps.centered("programming", "ram"));
+		System.out.println(ps.upOrDown(12.7, 'x'));
+		System.out.println(ps.countMe("one more batch of sample words", 'h'));
+		System.out.println(ps.isNotEqual("is not is not is not"));
+		System.out.println(ps.triplets("aaabbbbccccc"));
+		System.out.println(ps.addMe("a123b456c789", false));
 	}
 	
 	/**
@@ -155,23 +155,16 @@ public class ProblemSet4 {
 	 */
 	
 	public boolean centered (String str, String target) {
-		if (str == null) {
+		if (str == null || target == null || str.length() < 3 || target.length() != 3) {
 			return false;
 		}
-		if (str.length() % 2 != 0) {
-			String middle = str.substring(str.length()/2 -1, str.length()/2 +2);
-			if (middle.equals(target)) {
-				return true;
-			}
+		double middle = str.length() / 2.0;
+		if ((int) middle == middle){
+			return str.substring((int) middle - 2, (int) middle + 1).equals(target) || str.substring( (int) middle - 1, (int) middle + 2).equals(target);
 		}
-		String midOne = str.substring(str.length()/2 -2, str.length()/2 +1);
-		String midTwo = str.substring(str.length()/2 -1, str.length()/2 +1);
-		if (midOne.equals(target) || midTwo.equals(target)){
-				return true;
-			}
 		else {
-			return false;
-			}
+			return str.substring((int) middle - 1, (int) middle + 2).equals(target);
+		}
 	}
 	
 	/**
@@ -189,8 +182,16 @@ public class ProblemSet4 {
 	 */
 	
 	public int upOrDown (double number, char operation) {
-		
-		return -1;
+		switch (operation) {
+			case 'r':
+				return (int) Math.round(number);
+			case 'f':
+				return (int) Math.floor(number);
+			case 'c':
+				return (int) Math.ceil(number);
+			default:
+				return -1;
+		}
 	}
 	
 	/**
@@ -210,7 +211,19 @@ public class ProblemSet4 {
 	 */
 	
 	public int countMe (String text, char end) {
-		return -1;
+		if (text == null || !(Character.isAlphabetic((end)))){
+			return -1;
+		}
+		int count = 0;
+		for (int i = 0; i < text.length()-1; i++) {
+			if(text.charAt(i) == end && Character.isWhitespace(text.charAt(i+1))) {
+				count++;
+			}
+		}
+		if(text.charAt(text.length()-1) == end) {
+			count++;
+		}
+		return count;
 	}
 	
 	/**
@@ -227,7 +240,20 @@ public class ProblemSet4 {
 	 */
 	
 	public boolean isNotEqual(String str) {
-		return false;
+		if (str == null) {
+			return false;
+		}
+		int isCount = 0;
+		int notCount = 0;
+		for (int i = 0; i < str.length()-1; i++) {
+			if (str.charAt(i) == 'i' && str.charAt(i+1) == 's') {
+				isCount++;
+			}
+			else if (str.charAt(i) == 'n' && str.charAt(i+1) == 'o' && str.charAt(i+2) == 't') {
+				notCount++;
+			} 
+		}
+		return isCount == notCount;
 	}
 	
 	/**
@@ -245,9 +271,20 @@ public class ProblemSet4 {
 	 */
 	
 	public int triplets(String str) {
-		return -1;
+		if (str == null){
+			return -1;
+		}
+		int count = 0;
+		for (int i = 0; i < str.length()-2;i++) {
+			if (Character.isWhitespace(str.charAt(i)) || !(Character.isLetter(str.charAt(i)))){
+				return -1;
+			}
+			if (str.charAt(i) == str.charAt(i+1) && str.charAt(i) == str.charAt(i+2)) {
+				count++;
+		}
+		}
+		return count;
 	}
-	
 	/**
 	 * @addMe is a public method that accepts a String and a boolean as input, and
 	 * returns an integer as output.
@@ -264,6 +301,22 @@ public class ProblemSet4 {
 	 */
 	
 	public int addMe(String str, boolean digits) {
-		return -1;
+		if (str == null) {
+			return -1;
+		}
+		int middle = 0;
+		for (int i = 0; i < str.length();i++) {
+			if (Character.isWhitespace(str.charAt(i))){
+				return -1;
+			}
+			if(Character.isDigit(str.charAt(i)) && digits == true){
+				middle = middle + Character.getNumericValue(str.charAt(i));
+			}
+			else if(Character.isDigit(str.charAt(i)) && digits == false) {
+				//make hundreds before adding or doing whatever
+				middle = middle + Character.getNumericValue(str.charAt(i));
+			}
+		}
+		return middle;
 	}
 }
