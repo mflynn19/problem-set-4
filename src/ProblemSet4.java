@@ -22,16 +22,16 @@ public class ProblemSet4 {
 	
 	public static void main(String[] args) {
 		ProblemSet4 ps = new ProblemSet4();
-		System.out.println(ps.surroundMe("<<>>", "abc"));
-		System.out.println(ps.endsMeet("hello",2));
-		System.out.println(ps.middleMan("hello"));
-		System.out.println(ps.doubleVision("hello"));
-		System.out.println(ps.centered("programming", "ram"));
-		System.out.println(ps.upOrDown(12.7, 'x'));
-		System.out.println(ps.countMe("one more batch of sample words", 'h'));
-		System.out.println(ps.isNotEqual("is not is not is not"));
+		System.out.println(ps.surroundMe("[[]]", "xyz"));
+		System.out.println(ps.endsMeet("qwerty",2));
+		System.out.println(ps.middleMan("candy"));
+		System.out.println(ps.doubleVision("qwerty"));
+		System.out.println(ps.centered("candy", "and"));
+		System.out.println(ps.upOrDown(12.7, 'r'));
+		System.out.println(ps.countMe("sample", 'e'));
+		System.out.println(ps.isNotEqual("isnotis"));
 		System.out.println(ps.triplets("aaabbbbccccc"));
-		System.out.println(ps.addMe("a123b456c789", false));
+		System.out.println(ps.addMe("a123b456c789", true));
 	}
 	
 	/**
