@@ -31,7 +31,7 @@ public class ProblemSet4 {
 		System.out.println(ps.countMe("sample", 'e'));
 		System.out.println(ps.isNotEqual("isnotis"));
 		System.out.println(ps.triplets("aaabbbbccccc"));
-		System.out.println(ps.addMe("a123b456c789", true));
+		System.out.println(ps.addMe("a123b456c789", false));
 	}
 	
 	/**
@@ -305,18 +305,30 @@ public class ProblemSet4 {
 			return -1;
 		}
 		int middle = 0;
+		int temp = 0;
 		for (int i = 0; i < str.length();i++) {
 			if (Character.isWhitespace(str.charAt(i))){
 				return -1;
 			}
-			if(Character.isDigit(str.charAt(i)) && digits == true){
+			else if(Character.isDigit(str.charAt(i)) && digits == true){
 				middle = middle + Character.getNumericValue(str.charAt(i));
 			}
-			else if(Character.isDigit(str.charAt(i)) && digits == false) {
-				//make hundreds before adding or doing whatever
-				middle = middle + Character.getNumericValue(str.charAt(i));
-			}
+			else {
+					if (Character.isDigit(str.charAt(i))) {
+						temp *= 10;
+						temp += Character.getNumericValue(str.charAt(i));;
+					}
+					if (Character.isLetter(str.charAt(i)) || i == str.length()-1) {
+						middle += temp;
+						temp = 0;
+					}
+				}
 		}
 		return middle;
 	}
 }
+
+
+
+
+
